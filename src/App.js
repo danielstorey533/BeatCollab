@@ -1,7 +1,10 @@
 import React, { useState, useEffect} from 'react';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import * as path from 'path';
 import logo from './logo.svg';
 import './App.css';
+import Track from './Track';
 
 
 
@@ -60,18 +63,23 @@ function App() {
   return (
     <div className="App">
 	
-      <header className="App-header">
-        <p>The current time is {currentTime}.</p>
-		<p>The current track is {track_loc}. </p>
-      </header>
-	  
-	  <div>
-		<button onClick={start}>Play</button>
-		<button onClick={pause}>Pause</button>
-		<button onClick={stop}>Stop</button>
-		<button onClick={next}>NextTrack</button>
-	
-	  </div>
+  <Card style={{ width: '18rem' }}>
+  <Card.Img variant="top" src="https://upload.wikimedia.org/wikipedia/en/5/5e/Daytona_by_Pusha_T.jpg" />
+  <Card.Body>
+    <Card.Title>{track_loc}</Card.Title>
+    <Card.Text>
+      Brief beat synopsis will go here which is passed up from the python backend.
+    </Card.Text>
+    <Button onClick={start}>Play</Button>
+    <Button onClick={pause}>Pause</Button>
+    <Button onClick={stop}>Stop</Button>
+    <Button onClick={next}>Next</Button>
+
+  </Card.Body>
+</Card>
+
+
+
 	  
     </div>
   );
