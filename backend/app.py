@@ -1,4 +1,5 @@
 import time
+import os, random #Needed for accessing backend file structure
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
@@ -53,6 +54,26 @@ class Tracks(db.Model):
 @app.route('/time')
 def get_current_time():
     return {'time': time.time()}
+	
+	
+#TODO: This is for testing selection of random files after an action on the front end
+@app.route('/newTrack')
+def get_new_track():
+	
+	
+	os.chdir("..") # jump down one to project root
+	os.chdir("public") # switch to project folder
+	
+	cwd = os.getcwd() # get current directory
+	
+	tracks_path = os.path.join(cwd, "tracks") # tracks are in a folder by the same name
+	
+	track_name = random.choice(os.listdir(tracks_path)) # Assume only tracks are in directory, NOT EFFICIENT AS ALL ARE LOADED INTO MEM
+	
+	return {'trackpath': track_name}
+	
+	
+
 
 
 @app.route('/')
