@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Track from './Track';
+import Player from './Player';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Track />
+	<Player />
   </React.StrictMode>,
   document.getElementById('root')
 );

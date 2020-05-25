@@ -29,37 +29,6 @@ function App() {
   let audio = new Audio(track_loc)
 
 	  
-  const start = () => {
-	  
-	  audio.play()
-	  
-  } 
-  
-  const stop = () => {
-	  
-	  audio.pause()
-	  audio.currentTime = 0
-	  
-  }
-  
-  const pause = () => {
-	  
-	  audio.pause()
-	  
-  }
-  
-  const next = () => {
-	  
-	fetch('/newTrack').then(res => res.json()).then(data => {
-      setTrackPath(data.trackpath); 
-	});
-	
-	let track_loc = path.join('http://localhost:3000/', 'tracks', JSON.stringify(trackPath).replace(/\"/g, "")).replace("http:/", "http://")
-	let audio = new Audio(track_loc)
-	audio.play()
-	  
-  }
-
   return (
     <div className="App">
 	
@@ -70,11 +39,6 @@ function App() {
     <Card.Text>
       Brief beat synopsis will go here which is passed up from the python backend.
     </Card.Text>
-    <Button onClick={start}>Play</Button>
-    <Button onClick={pause}>Pause</Button>
-    <Button onClick={stop}>Stop</Button>
-    <Button onClick={next}>Next</Button>
-
   </Card.Body>
 </Card>
 
