@@ -1,3 +1,6 @@
+**BeatCollab is a work in progress full stack application using Python Flask and React to build a music collaboration network prototype. The objective of the application is to incorporate reccomender system algorithms to accurately match prospective musicians.**
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
